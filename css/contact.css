@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Yu Gothic", "游ゴシック", "游ゴシック体", sans-serif;
+}
+
+/* ヘッダースタイル */
+header {
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 200px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.header-nav {
+  margin: 0 0 0 auto;
+  opacity: 1;
+}
+
+.header-navList {
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+
+.header-navList a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  font-family: "Yu Gothic", "游ゴシック", "游ゴシック体", sans-serif;
+}
+
+.hamburger {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+
+/* ヘッダー レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .header-navList {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0px 20px;
+    z-index: 10000;
+  }
+
+  .header-navList li {
+    margin: 0px;
+  }
+
+  #menu-toggle:checked+.hamburger+nav .header-navList {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* メインスタイル (画像設定) */
+.main-visual {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeInOut 35s infinite;
+}
+
+.photo:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.photo:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.photo:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.photo:nth-child(4) {
+  animation-delay: 15s;
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  20%,
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+}
+
+/* レスポンシブで全画面表示に切り替え */
+@media screen and (max-width: 750px) {
+  .main-visual {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+.photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* メインスタイル */
+
+main img {
+  width: 80vw;
+  height: 80vh;
+  object-fit: cover;
+}
+
+main {
+  position: relative;
+}
+
+main h1 {
+  position: absolute;
+  top: 40%;
+  right: 80px;
+  text-align: right;
+  margin: 0;
+  font-size: 80px;
+  color: rgba(20, 19, 19, 0.6);
+  font-weight: bold;
+}
+
+/* ヘッダー レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  main img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+  }
+
+  main {
+    position: relative;
+  }
+
+  main h1 {
+    position: absolute;
+    top: 80%;
+    left: 0%;
+    margin: 0;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* フォームスタイル */
+form {
+  box-sizing: border-box;
+  margin: 30px;
+  padding: 20px;
+  background-color: #fff;
+  align-items: center;
+  margin-top: 60px;
+}
+
+dl {
+  margin: 0;
+}
+
+.formItem {
+  display: flex;
+  margin-bottom: 2em;
+  align-items: center;
+}
+
+dt {
+  flex: 0 1 200px;
+  margin-right: 1em;
+  font-weight: bold;
+  color: rgb(102, 199, 50);
+}
+
+dd {
+  flex: 1 1 auto;
+  margin-left: 0;
+}
+
+input[type="text"],
+textarea {
+  border: 1px solid #999;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input[type="tel"] {
+  border: 1px solid #999;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input[type="email"] {
+  border: 1px solid #999;
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+textarea {
+  display: block;
+  height: 5em;
+}
+
+.btn {
+  text-align: center;
+}
+
+input[type="submit"] {
+  background-color: rgb(255, 0, 195);
+  border: none;
+  width: 50%;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/*レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  section {
+    width: 100%;
+  }
+
+  .formItem {
+    display: block;
+  }
+
+  dt {
+    margin-bottom: 4px;
+  }
+
+  dd {
+    margin-left: 0
+  }
+
+  .btn {
+    text-align: center;
+  }
+}
+
+/* フッタースタイル */
+
+footer {
+  background-color: rgba(133, 130, 121, 0.808);
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px 30px 20px;
+  line-height: 10px;
+  text-align: right;
+}
+
+
+footer a {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+}
+
+footer img {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 40%;
+}
+
+/* フッター レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  footer img {
+    display: block;
+    width: 60%;
+    bottom: 35px;
+  }
+}

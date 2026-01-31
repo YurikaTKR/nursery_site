@@ -1,0 +1,564 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Yu Gothic", "游ゴシック", "游ゴシック体", sans-serif;
+}
+
+/* ヘッダースタイル */
+header {
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 200px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.header-nav {
+  margin: 0 0 0 auto;
+  opacity: 1;
+}
+
+.header-navList {
+  display: flex;
+  list-style-type: none;
+  gap: 30px;
+  padding-right: 50px;
+  padding-top: 20px;
+}
+
+
+.header-navList a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+  font-family: "Yu Gothic", "游ゴシック", "游ゴシック体", sans-serif;
+}
+
+.hamburger {
+  display: none;
+  font-size: 25px;
+  cursor: pointer;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+
+/* ヘッダー レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  .header-navList {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 69px;
+    right: 0;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0px 20px;
+    z-index: 10000;
+  }
+
+  .header-navList li {
+    margin: 0px;
+  }
+
+  #menu-toggle:checked+.hamburger+nav .header-navList {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+
+/* メインスタイル (画像設定) */
+.main-visual {
+  position: relative;
+  width: 80vw;
+  height: 80vh;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeInOut 35s infinite;
+}
+
+.photo:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.photo:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.photo:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.photo:nth-child(4) {
+  animation-delay: 15s;
+}
+
+@keyframes fadeInOut {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  20%,
+  50% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+}
+
+/* レスポンシブで全画面表示に切り替え */
+@media screen and (max-width: 750px) {
+  .main-visual {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    padding: 0;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+.photo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* メインスタイル (テキスト設定) */
+
+.main-text {
+  position: absolute;
+  top: 75%;
+  left: 3%;
+  transform: translateY(-50%);
+  color: rgb(12, 207, 201);
+  background-color: rgba(255, 255, 255, 0.68);
+  padding: 1vw;
+  text-align: left;
+  font-size: 1.5vw;
+  line-height: 1.5;
+  display: inline-block;
+  max-width: 80%;
+  font-weight: bold;
+}
+
+.main-text p {
+  margin: 10px;
+  letter-spacing: 5px;
+}
+
+/* レスポンシブで全画面表示に切り替え */
+@media screen and (max-width: 750px) {
+  main {
+    position: relative;
+  }
+
+  .main-text {
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    font-size: 3vw;
+  }
+}
+
+/* OurValues スタイル */
+.ourvalues {
+  margin: 20px;
+}
+
+.ourvalues h1 {
+  text-align: center;
+  color: rgb(102, 199, 50);
+  font-size: 30px;
+  padding-top: 20px;
+  margin: 0;
+  letter-spacing: 5px;
+}
+
+.ourvalues h2 {
+  text-align: center;
+  color: rgb(255, 0, 195);
+  font-size: 10px;
+  letter-spacing: 5px;
+  margin-top: 0px;
+}
+
+.our-text {
+  margin: 20px 30px 20px;
+  padding: 20px 0px 60px;
+  background-color: rgba(213, 207, 190, 0.808);
+  text-align: center;
+  color: #363636;
+  font-size: 15px;
+  letter-spacing: 7px;
+  border-radius: 25px;
+}
+
+.our-text h3 {
+  margin-bottom: 0;
+  margin-top: 10;
+}
+
+.our-textsub {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 40px;
+}
+
+.philosophy,
+.policy {
+  background-color: white;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 48%;
+  background-image: linear-gradient(transparent calc(100% - 1px), #e6edf3 50%, #e6edf3), linear-gradient(90deg, transparent calc(100% - 1px), #e6edf3 50%, #e6edf3);
+  background-size: 15px 15px;
+  background-repeat: repeat;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+
+.philosophy h4,
+.policy h4 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.philosophy h4 {
+  color: rgb(255, 0, 195);
+}
+
+.policy h4 {
+  color: rgb(102, 199, 50);
+}
+
+.philosophy p,
+.policy p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  font-weight: bold;
+}
+
+.sp-br {
+  display: none;
+}
+
+.our-text {
+  position: relative;
+}
+
+.btn-box {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}
+
+.btn {
+  display: block;
+  font-size: 15px;
+  width: 150px;
+  text-decoration: none;
+  background-color: rgb(255, 0, 195);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  padding: 5px;
+}
+
+.btn:hover {
+  background-color: #fff;
+  border: 2px solid rgb(255, 0, 195);
+  color: rgb(255, 0, 195);
+}
+
+.ourvalues {
+  position: relative;
+}
+
+.animal1 {
+  width: 170px;
+  transform: rotate(-8deg);
+  position: absolute;
+  top: 76%;
+  left: 0;
+}
+
+.animal2 {
+  width: 150px;
+  position: absolute;
+  top: 15%;
+  right: 0;
+}
+
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 750px) {
+  .ourvalues {
+    margin-top: 10px;
+  }
+
+  .our-text {
+    margin: 0;
+    padding-top: 10px;
+  }
+
+  .our-text h3 {
+    display: none;
+  }
+
+  .our-textsub {
+    margin: 10px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .philosophy,
+  .policy {
+    width: 90%;
+  }
+
+  .sp-br {
+    display: inline;
+  }
+
+  .our-text {
+    position: relative;
+  }
+
+  .btn-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .animal1 {
+    display: none;
+  }
+
+
+  .animal2 {
+    display: block;
+    width: 22%;
+    top: 10%;
+  }
+}
+
+/* ギャラリー スタイル*/
+
+.photo-gallery {
+  margin: 40px 70px 20px;
+}
+
+.gallery {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gallery img {
+  overflow: hidden;
+  width: 100%;
+  padding: 11px;
+  background-color: #FFFFFF;
+  box-shadow: 0 3px 18px -4px rgba(0, 0, 0, 0.2);
+}
+
+.photo1 {
+  transform: rotate(-15deg)
+}
+
+.photo2 {
+  transform: rotate(5deg)
+}
+
+.photo3 {
+  transform: rotate(-10deg)
+}
+
+.photo4 {
+  transform: rotate(10deg)
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 750px) {
+  .photo3 {
+    display: none;
+  }
+
+  .photo4 {
+    display: none;
+  }
+
+  .photo-gallery {
+    margin: 10px 30px 0px;
+  }
+}
+
+/* ニュース スタイル */
+
+.news {
+  background-color: rgb(12, 207, 201);
+  margin: 50px 50px 20px;
+  padding-bottom: 30px;
+  border-radius: 25px;
+}
+
+.news h1 {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 10px;
+  margin: 0;
+  letter-spacing: 5px;
+}
+
+.news h2 {
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 5px;
+  font-weight: 600;
+}
+
+.news {
+  position: relative;
+}
+
+.btn-box2 {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+}
+
+.btn2 {
+  display: block;
+  font-size: 15px;
+  width: 150px;
+  text-decoration: none;
+  background-color: rgb(255, 0, 195);
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+  padding: 5px;
+}
+
+.btn2:hover {
+  background-color: #fff;
+  border: 2px solid rgb(255, 0, 195);
+  color: rgb(255, 0, 195);
+}
+
+.news-sp {
+  display: none;
+}
+
+/* スマホサイズ対応 */
+@media screen and (max-width: 750px) {
+  .news {
+    position: relative;
+  }
+
+  .btn-box2 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .news {
+    margin: 50px 20px 20px;
+    padding-bottom: 60px;
+  }
+}
+
+/* フッタースタイル */
+
+footer {
+  background-color: rgba(133, 130, 121, 0.808);
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+footer p {
+  margin: 0;
+  padding: 10px 30px 20px;
+  line-height: 10px;
+  text-align: right;
+}
+
+
+footer a {
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+footer {
+  position: relative;
+}
+
+footer img {
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+  width: 40%;
+}
+
+/* フッター レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+  footer img {
+    display: block;
+    width: 60%;
+    bottom: 35px;
+
+  }
+}
